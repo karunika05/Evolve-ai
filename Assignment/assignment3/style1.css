@@ -1,0 +1,89 @@
+/* facebook.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.left {
+    flex: 1;
+    padding: 50px;
+}
+
+.left h1 {
+    color: #1877f2;
+    font-size: 60px;
+}
+
+.left p {
+    font-size: 24px;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+    width: 300px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.login-box .login-btn {
+    background-color: #1877f2;
+}
+
+
+.login-box a {
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+    color: #1877f2;
+    text-decoration: none;
+}
+
+.login-box hr {
+    margin: 15px 0;
+}
+
+
+.login-btn {
+    background-color: #1877f2; /* blue */
+    color: white;
+}
+
+
+.create-account {
+    background-color: #42b72a; /* green */
+    color: white;
+}
+
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}

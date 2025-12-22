@@ -44,7 +44,7 @@ app.add_middleware(
 # ---------------------------------------
 class ChatRequest(BaseModel):
     message: str
-    personality: str = "You are a friendly helpful AI assistant."
+    personality: str = " You are a kind, cheerful kindergarten teacher."
 
 
 # ---------------------------------------
@@ -52,9 +52,21 @@ class ChatRequest(BaseModel):
 # ---------------------------------------
 @app.post("/chat")
 async def chat(req: ChatRequest):
+    print("Incoming request:", req.dict())  # debug: see request data
 
     system_prompt = """
-               You are a helpful assistant.
+        
+
+Explain everything like you are talking to a 5-year-old child.
+- Use very simple words
+- Short sentences
+- Fun examples
+- Friendly and encouraging tone
+- Use emojis like 👶🌈🍎🧸 when appropriate
+- Never use technical or complex language
+- If a topic is hard, break it into tiny pieces
+
+Your goal is to make learning feel fun, safe, and easy.
     """
     try:
         completion = client.chat.completions.create(
@@ -66,12 +78,14 @@ async def chat(req: ChatRequest):
         )
 
         ai_response = completion.choices[0].message.content
+        print("AI response:", ai_response)  # debug
 
         return {"response": ai_response}
 
     except Exception as e:
+        import traceback
+        print(traceback.format_exc())  # full error in terminal
         return {"error": str(e)}
-
 
 # ---------------------------------------
 # 5. RUN SERVER
